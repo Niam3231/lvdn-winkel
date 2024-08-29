@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liam's Online Winkel</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+        }
+        .product h3 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .product p {
+            font-size: 18px;
+            color: #888;
+            margin-bottom: 15px;
+        }
+        .buy-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .buy-button:hover {
+            background-color: #218838;
+        }
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<header>Liam's Online Winkel</header>
+
+<div class="container">
+    <div class="products-grid">
+        <div class="product">
+            <img src="https://raw.githubusercontent.com/niam3231/lvdn-winkel/main/images/product1.ico" alt="Product 1">
+            <h3 id="name1">Product 1</h3>
+            <p>€<span id="price1"></span></p>
+            <a href="#" class="buy-button">Koop Nu</a>
+        </div>
+        <div class="product">
+            <img src="https://raw.githubusercontent.com/niam3231/lvdn-winkel/main/images/product2.ico" alt="Product 2">
+            <h3 id="name2">Product 2</h3>
+            <p>€<span id="price2"></span></p>
+            <a href="#" class="buy-button">Koop Nu</a>
+        </div>
+        <div class="product">
+            <img src="https://raw.githubusercontent.com/niam3231/lvdn-winkel/main/images/product3.ico" alt="Product 3">
+            <h3 id="name3">Product 3</h3>
+            <p>€<span id="price3"></span></p>
+            <a href="#" class="buy-button">Koop Nu</a>
+        </div>
+        <div class="product">
+            <img src="https://raw.githubusercontent.com/niam3231/lvdn-winkel/main/images/product4.ico" alt="Product 4">
+            <h3 id="name4">Product 4</h3>
+            <p>€<span id="price4"></span></p>
+            <a href="#" class="buy-button">Koop Nu</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2024 Liam's Online Winkel. Alle rechten voorbehouden.
+</footer>
+
+<script>
+    // Productgegevens ophalen via GitHub Raw
+    fetch('https://raw.githubusercontent.com/niam3231/lvdn-winkel/main/prijzen.json')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('name1').textContent = data.product1.name;
+            document.getElementById('price1').textContent = data.product1.price;
+
+            document.getElementById('name2').textContent = data.product2.name;
+            document.getElementById('price2').textContent = data.product2.price;
+
+            document.getElementById('name3').textContent = data.product3.name;
+            document.getElementById('price3').textContent = data.product3.price;
+
+            document.getElementById('name4').textContent = data.product4.name;
+            document.getElementById('price4').textContent = data.product4.price;
+        })
+        .catch(error => console.error('Error fetching product data:', error));
+</script>
+
+</body>
+</html>

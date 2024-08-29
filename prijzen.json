@@ -1,0 +1,18 @@
+{
+    "product1": {
+        "name": "Hulp met de computer",
+        "price": "1,50"
+    },
+    "product2": {
+        "name": "Stijlvol Product 2",
+        "price": "12.49"
+    },
+    "product3": {
+        "name": "Innovatief Item 3",
+        "price": "8.75"
+    },
+    "product4": {
+        "name": "Trendy Artikel 4",
+        "price": "15.99"
+    }
+}
